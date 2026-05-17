@@ -635,8 +635,201 @@
     transform: none;
   }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
+  /* ── TERMINAL INTRO ── */
+  #terminal-intro {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 4rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: #00ff41;
+    overflow: hidden;
+  }
+  #terminal-intro .t-line {
+    opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #00ff41;
+    width: 0;
+    animation: termType 0.5s steps(40) forwards;
+  }
+  #terminal-intro .t-line.done { border-right: none; }
+  .t-prompt { color: var(--accent); margin-right: 0.5rem; }
+  .t-dim { color: #444; }
+  .t-green { color: #00ff41; }
+  .t-skip {
+    position: absolute;
+    bottom: 2rem; right: 3rem;
+    font-size: 0.7rem;
+    color: #444;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+  .t-skip:hover { color: #00ff41; }
+
+  @keyframes termType {
+    from { width: 0; opacity: 1; }
+    to   { width: 100%; opacity: 1; }
+  }
+
+  /* ── PARTICLES CANVAS ── */
+  #particles-canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.35;
+  }
+
+  /* ── TYPEWRITER HERO ── */
+  .hero-name {
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+  }
+  .hero-name .char {
+    display: inline-block;
+    transition: color 0.1s, transform 0.1s;
+  }
+  .hero-name .char.typing {
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(245,158,11,0.8);
+    animation: charPop 0.15s ease;
+  }
+  @keyframes charPop {
+    0%   { transform: scaleY(1.4) translateY(-4px); }
+    100% { transform: scaleY(1) translateY(0); }
+  }
+
+  .hero-name .cursor-blink {
+    display: inline-block;
+    width: 6px;
+    background: var(--accent);
+    animation: blink 0.8s step-end infinite;
+    vertical-align: middle;
+    margin-left: 2px;
+    border-radius: 1px;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ── GLITCH on hero name hover ── */
+  .hero-name:hover .char {
+    animation: glitchChar 0.3s ease;
+  }
+  @keyframes glitchChar {
+    0%  { transform: none; }
+    20% { transform: skewX(-5deg) translateX(2px); color: #f59e0b; }
+    40% { transform: skewX(3deg) translateX(-2px); color: #3b82f6; }
+    60% { transform: skewX(-2deg) translateX(1px); color: #10b981; }
+    80% { transform: skewX(1deg); color: var(--text); }
+    100%{ transform: none; color: inherit; }
+  }
+
+  /* ── TYPEWRITER for hero-title ── */
+  .hero-title {
+    position: relative;
+    min-height: 1.5em;
+  }
+  #typed-title { display: inline; }
+  #typed-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1em;
+    background: var(--accent2);
+    vertical-align: middle;
+    animation: blink 0.7s step-end infinite;
+    margin-left: 1px;
+  }
+
+  /* ── SCAN LINE ── */
+  .hero::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(245,158,11,0.15), transparent);
+    animation: scanLine 4s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+  }
+  @keyframes scanLine {
+    0%   { top: 0; }
+    100% { top: 100%; }
+  }
+
+  /* ── CLICK HINT ── */
+  .click-hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    margin-top: 0.5rem;
+    opacity: 0.6;
+    animation: fadeUp 1s 1.5s ease both;
+  }
+
+  /* ── PULSE RING on hero tag ── */
+  .hero-tag {
+    position: relative;
+  }
+  .hero-tag::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 1px solid rgba(245,158,11,0.4);
+    animation: pulseRing 2.5s ease-out infinite;
+    border-radius: 2px;
+  }
+  @keyframes pulseRing {
+    0%   { opacity: 0.8; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.08); }
+  }
+
+  /* ── COUNTER animation ── */
+  .stat-num { transition: color 0.3s; }
+  .stat-card:hover .stat-num { color: var(--accent) !important; text-shadow: 0 0 20px rgba(245,158,11,0.5); }
+
+  /* ── NEON GLOW on section titles ── */
+  .section-title {
+    transition: text-shadow 0.3s;
+  }
+  .section-header:hover .section-title {
+    text-shadow: 0 0 30px rgba(245,158,11,0.3);
+  }
+
+  /* ── PROGRESS BARS for skills ── */
+  .skill-bar-wrap {
+    margin-top: 1rem;
+  }
+  .skill-bar-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+  }
+  .skill-bar {
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 0.7rem;
+  }
+  .skill-bar-fill {
+    height: 100%;
+    width: 0;
+    border-radius: 2px;
+    transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+  .skill-bar-fill.green { background: linear-gradient(90deg, var(--accent3), var(--accent2)); }
+
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
@@ -649,9 +842,22 @@
 </head>
 <body>
 
+<!-- PARTICLES -->
+<canvas id="particles-canvas"></canvas>
+
+<!-- TERMINAL INTRO -->
+<div id="terminal-intro">
+  <div style="margin-bottom:2rem;">
+    <div style="color:#00ff41;font-size:0.65rem;letter-spacing:0.2em;margin-bottom:1rem;">SYSTEM BOOT — PORTFOLIO OS v2.0</div>
+    <div style="width:100%;height:1px;background:linear-gradient(90deg,#00ff41,transparent);margin-bottom:1.5rem;"></div>
+  </div>
+  <div id="t-lines"></div>
+  <div class="t-skip" onclick="skipIntro()">[ SKIP — TEKAN ENTER ]</div>
+</div>
+
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">JUNAID A ISNAM.ST</div>
+  <div class="nav-logo">Junaid Adzan Isnam.ST</div>
   <div class="nav-links">
     <a href="#about">Tentang</a>
     <a href="#skills">Keahlian</a>
@@ -666,12 +872,13 @@
 <section class="hero">
   <div class="hero-left">
     <div class="hero-tag">Electrical Engineering — S1 Teknik Elektro</div>
-    <h1 class="hero-name">JUNAID<br><span>ADZAN</span><br>ISNAM</h1>
-    <div class="hero-title">// ELECTRICAL MAINTENANCE STAFF · POWER PLANT SPECIALIST · AI & SOFTWARE DEV</div>
+    <h1 class="hero-name" id="heroName" onclick="triggerTypewriter()" title="Klik untuk animasi!">JUNAID<br><span>ADZAN</span><br>ISNAM</h1>
+    <div class="click-hint">▶ klik nama untuk animasi</div>
+    <div class="hero-title"><span id="typed-title">// ELECTRICAL MAINTENANCE · POWER PLANT SPECIALIST · AI & SOFTWARE DEV</span><span id="typed-cursor"></span></div>
     <p class="hero-desc">
-      Electrical Maintenance Staff dengan pengalaman lebih dari 10 tahun di industri power plant,
+      Electrical Maintenance Staff dengan pengalaman lebih dari 7 tahun di industri power plant,
       nikel, dan konstruksi jaringan. Menguasai maintenance, troubleshooting, engineering modification,
-      serta pengembangan software berbasis AI dan Python.
+      serta pengembangan software berbasis AI.
     </p>
     <div class="hero-cta">
       <a href="#experience" class="btn-primary">Lihat Pengalaman</a>
@@ -716,7 +923,7 @@
     <div class="about-text reveal">
       <p>
         Saya adalah Electrical Maintenance Staff dengan pengalaman kerja di industri pembangkit
-        listrik sejak 2018, dan latar belakang teknikal lebih dari 10 tahun di power plant,
+        listrik sejak 2018, dan latar belakang teknikal lebih dari 7 tahun di power plant,
         industri nikel, dan konstruksi jaringan transmisi.
       </p>
       <p>
@@ -750,7 +957,7 @@
       </div>
       <div class="contact-item">
         <div class="contact-icon">🌐</div>
-        <span>📎Bahasa Indonesia 📎Bahasa Cina Dasar</span>
+        <span>📌 Bahasa Indonesia  📌 Bahasa Cina Dasar</span>
       </div>
     </div>
   </div>
@@ -1257,20 +1464,245 @@
 </footer>
 
 <script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('visible');
-        }, 80 * (Array.from(entry.target.parentElement.children).indexOf(entry.target)));
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
+/* ═══════════════════════════════════
+   TERMINAL INTRO
+═══════════════════════════════════ */
+const termLines = [
+  { delay: 200,  text: '<span class="t-prompt">$</span> <span class="t-dim">initializing</span> portfolio.exe...' },
+  { delay: 900,  text: '<span class="t-prompt">$</span> <span class="t-dim">loading</span> <span class="t-green">JUNAID ADZAN ISNAM</span>.json' },
+  { delay: 1700, text: '<span class="t-prompt">$</span> experience: <span class="t-green">10+ years</span> electrical engineering' },
+  { delay: 2500, text: '<span class="t-prompt">$</span> skills: <span class="t-green">power plant · python · AI · network</span>' },
+  { delay: 3300, text: '<span class="t-prompt">$</span> status: <span class="t-green">ACTIVE</span> @ PT. Mega Surya Pertiwi' },
+  { delay: 4100, text: '<span class="t-prompt">$</span> <span class="t-dim">launching</span> UI...' },
+];
 
-  reveals.forEach(el => observer.observe(el));
+const tContainer = document.getElementById('t-lines');
+termLines.forEach((item, i) => {
+  setTimeout(() => {
+    const div = document.createElement('div');
+    div.className = 't-line';
+    div.innerHTML = item.text;
+    tContainer.appendChild(div);
+    const w = div.scrollWidth + 'px';
+    div.style.animationDuration = Math.max(0.4, item.text.replace(/<[^>]+>/g,'').length * 0.028) + 's';
+    div.style.animationFillMode = 'forwards';
+    setTimeout(() => div.classList.add('done'), parseFloat(div.style.animationDuration) * 1000 + 100);
+  }, item.delay);
+});
+
+setTimeout(() => hideIntro(), 5200);
+
+function hideIntro() {
+  const intro = document.getElementById('terminal-intro');
+  intro.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  intro.style.opacity = '0';
+  intro.style.transform = 'translateY(-20px)';
+  setTimeout(() => { intro.style.display = 'none'; startTypedTitle(); }, 650);
+}
+
+function skipIntro() {
+  clearTimeout(introTimer);
+  hideIntro();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter') skipIntro();
+});
+
+/* ═══════════════════════════════════
+   TYPED TITLE (auto on load)
+═══════════════════════════════════ */
+const titleText = '// ELECTRICAL MAINTENANCE STAFF · POWER PLANT SPECIALIST · AI & SOFTWARE DEV';
+let titleTyped = false;
+
+function startTypedTitle() {
+  if (titleTyped) return;
+  titleTyped = true;
+  const el = document.getElementById('typed-title');
+  const cur = document.getElementById('typed-cursor');
+  el.textContent = '';
+  cur.style.display = 'inline-block';
+  let i = 0;
+  const iv = setInterval(() => {
+    el.textContent += titleText[i];
+    i++;
+    if (i >= titleText.length) { clearInterval(iv); setTimeout(() => cur.style.display = 'none', 2000); }
+  }, 28);
+}
+
+/* ═══════════════════════════════════
+   TYPEWRITER HERO NAME on click
+═══════════════════════════════════ */
+let isTyping = false;
+function triggerTypewriter() {
+  if (isTyping) return;
+  isTyping = true;
+  const el = document.getElementById('heroName');
+  const lines = ['JUNAID', 'ADZAN', 'ISNAM'];
+  const fullText = 'JUNAID ADZAN ISNAM';
+
+  // flatten all text to chars with spans
+  el.innerHTML = '';
+  let charDelay = 0;
+  lines.forEach((line, li) => {
+    line.split('').forEach((ch, ci) => {
+      const span = document.createElement('span');
+      span.className = 'char';
+      span.textContent = ch;
+      span.style.opacity = '0';
+      el.appendChild(span);
+      setTimeout(() => {
+        span.style.opacity = '1';
+        span.classList.add('typing');
+        setTimeout(() => span.classList.remove('typing'), 300);
+      }, charDelay);
+      charDelay += 60;
+    });
+    if (li < lines.length - 1) {
+      setTimeout((() => {
+        const br = document.createElement('br');
+        el.appendChild(br);
+      }).bind(null), charDelay);
+    }
+  });
+
+  // cursor blink at end
+  setTimeout(() => {
+    const cur = document.createElement('span');
+    cur.className = 'cursor-blink';
+    cur.style.height = '0.7em';
+    el.appendChild(cur);
+    setTimeout(() => { cur.remove(); isTyping = false; }, 2500);
+  }, charDelay + 100);
+}
+
+/* ═══════════════════════════════════
+   PARTICLE CANVAS
+═══════════════════════════════════ */
+const canvas = document.getElementById('particles-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function resizeCanvas() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+function createParticle() {
+  return {
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4,
+    r: Math.random() * 1.5 + 0.3,
+    alpha: Math.random() * 0.5 + 0.1,
+    color: ['#f59e0b','#3b82f6','#10b981'][Math.floor(Math.random()*3)]
+  };
+}
+
+for (let i = 0; i < 90; i++) particles.push(createParticle());
+
+function animParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0) p.x = canvas.width;
+    if (p.x > canvas.width) p.x = 0;
+    if (p.y < 0) p.y = canvas.height;
+    if (p.y > canvas.height) p.y = 0;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = p.color;
+    ctx.globalAlpha = p.alpha;
+    ctx.fill();
+  });
+
+  // draw lines between close particles
+  ctx.globalAlpha = 1;
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i+1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < 100) {
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.strokeStyle = particles[i].color;
+        ctx.globalAlpha = (1 - dist/100) * 0.12;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    }
+  }
+  requestAnimationFrame(animParticles);
+}
+animParticles();
+
+/* ═══════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════ */
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const siblings = Array.from(entry.target.parentElement.children);
+      const idx = siblings.indexOf(entry.target);
+      setTimeout(() => entry.target.classList.add('visible'), 80 * idx);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+/* ═══════════════════════════════════
+   SKILL BAR ANIMATION
+═══════════════════════════════════ */
+const skillBars = document.querySelectorAll('.skill-bar-fill');
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const fill = entry.target;
+      fill.style.width = fill.dataset.width;
+      barObserver.unobserve(fill);
+    }
+  });
+}, { threshold: 0.3 });
+skillBars.forEach(b => barObserver.observe(b));
+
+/* ═══════════════════════════════════
+   COUNTER ANIMATION on stat cards
+═══════════════════════════════════ */
+function animateCounter(el, target, suffix, duration) {
+  let start = 0;
+  const step = (timestamp) => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    if (typeof target === 'number') {
+      el.textContent = (target * eased).toFixed(target % 1 !== 0 ? 2 : 0) + suffix;
+    }
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+const statCards = document.querySelectorAll('.stat-card');
+const statObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const numEl = entry.target.querySelector('.stat-num');
+      const text = numEl.textContent.trim();
+      if (text === '10+')   { animateCounter(numEl, 10, '+', 1200); }
+      else if (text === '3×') { animateCounter(numEl, 3, '×', 1000); }
+      else if (text === '3.13') { animateCounter(numEl, 3.13, '', 1500); }
+      statObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+statCards.forEach(c => statObserver.observe(c));
 </script>
 </body>
 </html>
