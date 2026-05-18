@@ -105,6 +105,15 @@
     border-radius: 2px;
     margin-bottom: 2rem;
     animation: fadeUp 0.8s ease both;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+  }
+  .hero-tag:hover {
+    background: rgba(245,158,11,0.2);
+    border-color: rgba(245,158,11,0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(245,158,11,0.15);
   }
   .hero-tag::before {
     content: '▶';
@@ -128,6 +137,35 @@
     letter-spacing: 0.08em;
     margin: 1.5rem 0;
     animation: fadeUp 0.8s 0.2s ease both;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .hero-title:hover {
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(245,158,11,0.3);
+  }
+
+  .hero-title-expanded {
+    margin-top: 1rem;
+    padding: 1.2rem 1.5rem;
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: none;
+  }
+
+  .hero-title-expanded.active {
+    max-height: 200px;
+    opacity: 1;
+    animation: slideDown 0.4s ease;
   }
 
   .hero-desc {
@@ -194,6 +232,7 @@
     position: relative;
     overflow: hidden;
     transition: transform 0.2s, border-color 0.2s;
+    cursor: pointer;
   }
   .stat-card::before {
     content: '';
@@ -276,6 +315,16 @@
     font-size: 0.95rem;
     line-height: 1.9;
     margin-bottom: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0.8rem;
+    border-radius: 3px;
+  }
+
+  .about-text p:hover {
+    background: rgba(245,158,11,0.05);
+    border-left: 3px solid var(--accent);
+    padding-left: 1.2rem;
   }
 
   .contact-list { display: flex; flex-direction: column; gap: 0.8rem; }
@@ -287,6 +336,13 @@
     background: var(--surface);
     border: 1px solid var(--border);
     font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .contact-item:hover {
+    background: rgba(245,158,11,0.05);
+    border-color: var(--accent);
+    transform: translateX(4px);
   }
   .contact-icon {
     width: 32px;
@@ -315,9 +371,14 @@
     border: 1px solid var(--border);
     padding: 1.8rem;
     position: relative;
-    transition: border-color 0.3s;
+    transition: all 0.3s;
+    cursor: pointer;
   }
-  .skill-category:hover { border-color: rgba(245,158,11,0.4); }
+  .skill-category:hover { 
+    border-color: rgba(245,158,11,0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(245,158,11,0.1);
+  }
 
   .skill-category-title {
     font-family: 'JetBrains Mono', monospace;
@@ -339,12 +400,24 @@
     font-size: 0.75rem;
     letter-spacing: 0.05em;
     transition: all 0.2s;
-    cursor: default;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-tag::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: -1;
   }
   .skill-tag:hover {
     background: rgba(245,158,11,0.1);
     border-color: rgba(245,158,11,0.4);
     color: var(--accent);
+    transform: scale(1.05);
   }
 
   /* ── EXPERIENCE ── */
@@ -377,6 +450,7 @@
     margin-top: 0.3rem;
     position: relative;
     z-index: 1;
+    animation: dotPulse 2s ease-in-out infinite;
   }
   .exp-dot::after {
     content: '';
@@ -389,9 +463,26 @@
     background: var(--surface);
     border: 1px solid var(--border);
     padding: 1.5rem;
-    transition: border-color 0.3s;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
   }
-  .exp-card:hover { border-color: rgba(245,158,11,0.3); }
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .exp-card:hover {
+    border-color: rgba(245,158,11,0.3);
+    transform: translateX(4px);
+  }
+  .exp-card:hover::before { transform: scaleX(1); }
 
   .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem; }
 
@@ -430,6 +521,7 @@
     padding-left: 1rem;
     position: relative;
     margin-bottom: 0.3rem;
+    transition: all 0.2s;
   }
   .exp-desc li::before {
     content: '→';
@@ -455,6 +547,7 @@
     position: relative;
     overflow: hidden;
     transition: all 0.3s;
+    cursor: pointer;
   }
   .edu-card.featured {
     border-color: rgba(245,158,11,0.3);
@@ -521,6 +614,7 @@
     position: relative;
     overflow: hidden;
     transition: all 0.3s;
+    cursor: pointer;
   }
   .project-card::after {
     content: '';
@@ -569,6 +663,7 @@
     align-items: center;
     gap: 1.2rem;
     transition: all 0.2s;
+    cursor: pointer;
   }
   .cert-item:hover {
     border-color: rgba(16,185,129,0.4);
@@ -622,6 +717,14 @@
   @keyframes fadeLeft {
     from { opacity: 0; transform: translateX(30px); }
     to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes dotPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.7); }
+    50% { box-shadow: 0 0 0 8px rgba(245,158,11,0); }
   }
 
   /* Scroll reveal */
@@ -830,6 +933,7 @@
   }
   .skill-bar-fill.green { background: linear-gradient(90deg, var(--accent3), var(--accent2)); }
 
+  @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
@@ -871,10 +975,13 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag">Electrical Engineering — S1 Teknik Elektro</div>
+    <div class="hero-tag" onclick="toggleTagInfo(event)">Electrical Engineering — S1 Teknik Elektro</div>
     <h1 class="hero-name" id="heroName" onclick="triggerTypewriter()" title="Klik untuk animasi!">JUNAID<br><span>ADZAN</span><br>ISNAM</h1>
     <div class="click-hint">▶ klik nama untuk animasi</div>
-    <div class="hero-title"><span id="typed-title">// ELECTRICAL MAINTENANCE · POWER PLANT SPECIALIST · AI & SOFTWARE DEV</span><span id="typed-cursor"></span></div>
+    <div class="hero-title" onclick="toggleTitleInfo(event)"><span id="typed-title">// ELECTRICAL MAINTENANCE · POWER PLANT SPECIALIST · AI & SOFTWARE DEV</span><span id="typed-cursor"></span></div>
+    <div class="hero-title-expanded" id="titleInfo">
+      <strong>Keahlian Utama:</strong> Maintenance electrical systems, power plant operations (3×50 MW), DCS control systems, dan pengembangan software berbasis AI. Berpengalaman dalam troubleshooting sistem kompleks dan engineering modification sesuai standar industri.
+    </div>
     <p class="hero-desc">
       Electrical Maintenance Staff dengan pengalaman lebih dari 7 tahun di industri power plant,
       nikel, dan konstruksi jaringan. Menguasai maintenance, troubleshooting, engineering modification,
@@ -887,21 +994,21 @@
   </div>
 
   <div class="hero-right">
-    <div class="stat-card">
+    <div class="stat-card" onclick="toggleStatInfo(0)">
       <div class="stat-num">10+</div>
       <div class="stat-info">
         <h4>Tahun Pengalaman</h4>
         <p>Industri nikel, power plant, konstruksi & IT</p>
       </div>
     </div>
-    <div class="stat-card">
+    <div class="stat-card" onclick="toggleStatInfo(1)">
       <div class="stat-num">3×</div>
       <div class="stat-info">
         <h4>Power Plant 3×50 MW</h4>
         <p>Operator Elektrik DCS — PT. Wanatiara Persada</p>
       </div>
     </div>
-    <div class="stat-card">
+    <div class="stat-card" onclick="toggleStatInfo(2)">
       <div class="stat-num">3.13</div>
       <div class="stat-info">
         <h4>IPK — Unhas S1</h4>
@@ -921,17 +1028,17 @@
 
   <div class="about-grid">
     <div class="about-text reveal">
-      <p>
+      <p onclick="highlightText(event)">
         Saya adalah Electrical Maintenance Staff dengan pengalaman kerja di industri pembangkit
         listrik sejak 2018, dan latar belakang teknikal lebih dari 7 tahun di power plant,
         industri nikel, dan konstruksi jaringan transmisi.
       </p>
-      <p>
+      <p onclick="highlightText(event)">
         Memiliki kemampuan dalam maintenance, troubleshooting, engineering modification, dan
         perawatan sistem electrical power plant — termasuk crane & hoist system, MCC, motor listrik,
         transformer, dan sistem kontrol. Terbiasa bekerja sesuai standar K3 dan SOP perusahaan.
       </p>
-      <p>
+      <p onclick="highlightText(event)">
         Selain kompetensi teknikal industri, saya juga aktif mengembangkan kemampuan di bidang
         AI Engineering, Python Programming, Web Development, dan pengembangan aplikasi berbasis
         teknologi modern.
@@ -999,77 +1106,48 @@
     <div class="skill-category reveal">
       <div class="skill-category-title">🏗️ Instalasi Listrik</div>
       <div class="skill-tags">
-        <span class="skill-tag">Instalasi 24V</span>
-        <span class="skill-tag">Instalasi 220V</span>
-        <span class="skill-tag">Instalasi 380V</span>
+        <span class="skill-tag">Wiring Instalasi</span>
+        <span class="skill-tag">Cable Termination</span>
+        <span class="skill-tag">Earthing/Grounding</span>
+        <span class="skill-tag">Lightning Protection</span>
+        <span class="skill-tag">Distribution Panel</span>
+        <span class="skill-tag">UPS Installation</span>
       </div>
     </div>
 
     <div class="skill-category reveal">
-      <div class="skill-category-title">🖥️ Software & Komputer</div>
+      <div class="skill-category-title">🤖 AI & Programming</div>
       <div class="skill-tags">
-        <span class="skill-tag">Microsoft Office</span>
-        <span class="skill-tag">Visio</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">Data Analysis</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Web Dev</span>
+      </div>
+    </div>
+
+    <div class="skill-category reveal">
+      <div class="skill-category-title">📊 Sistem & Software</div>
+      <div class="skill-tags">
+        <span class="skill-tag">DCS Control</span>
+        <span class="skill-tag">SCADA System</span>
+        <span class="skill-tag">HMI Interface</span>
+        <span class="skill-tag">Industrial IoT</span>
+        <span class="skill-tag">SQL Database</span>
+        <span class="skill-tag">Git Version Control</span>
+      </div>
+    </div>
+
+    <div class="skill-category reveal">
+      <div class="skill-category-title">🛠️ Tools & Equipment</div>
+      <div class="skill-tags">
         <span class="skill-tag">AutoCAD</span>
-        <span class="skill-tag">Simurelay</span>
-        <span class="skill-tag">Troubleshooting PC</span>
-        <span class="skill-tag">Hardware Repair</span>
-        <span class="skill-tag">Penanganan Virus</span>
-      </div>
-    </div>
-
-    <div class="skill-category reveal">
-      <div class="skill-category-title">🌐 Jaringan & IT</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Krimping LAN</span>
-        <span class="skill-tag">LAN Tester</span>
-        <span class="skill-tag">Splizer</span>
-        <span class="skill-tag">Konfigurasi Router setup</span>
-        <span class="skill-tag">Konfigurasi Ruijie cloud</span>
-        <span class="skill-tag">AP Setup</span>
-        <span class="skill-tag">Speed Testing</span>
-      </div>
-    </div>
-
-    <div class="skill-category reveal">
-      <div class="skill-category-title">⚙️ Sistem Kontrol & DCS</div>
-      <div class="skill-tags">
-        <span class="skill-tag">DCS Operation</span>
-        <span class="skill-tag">Start-Up / Shut Down</span>
-        <span class="skill-tag">Monitoring Peralatan</span>
-        <span class="skill-tag">Analisa Kelainan Sistem</span>
-      </div>
-    </div>
-
-    <div class="skill-category reveal">
-      <div class="skill-category-title">🔧 Power Plant Maintenance</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Electrical Maintenance Power Plant</span>
-        <span class="skill-tag">Preventive Maintenance</span>
-        <span class="skill-tag">Corrective Maintenance</span>
-        <span class="skill-tag">Troubleshooting Electrical System</span>
-        <span class="skill-tag">MCC Maintenance</span>
-        <span class="skill-tag">Crane & Hoist System</span>
-        <span class="skill-tag">Transformer Maintenance</span>
-        <span class="skill-tag">Motor Control System</span>
-        <span class="skill-tag">Root Cause Analysis</span>
-        <span class="skill-tag">Engineering Modification</span>
-        <span class="skill-tag">Reading SLD & Wiring Diagram</span>
-        <span class="skill-tag">K3 & SOP Compliance</span>
-      </div>
-    </div>
-
-    <div class="skill-category reveal">
-      <div class="skill-category-title">🤖 Teknologi & AI Development</div>
-      <div class="skill-tags">
-        <span class="skill-tag">AI Engineering</span>
-        <span class="skill-tag">Python Programming</span>
-        <span class="skill-tag">Web Development</span>
-        <span class="skill-tag">HTML & CSS</span>
-        <span class="skill-tag">Software Development</span>
-        <span class="skill-tag">AI-Based App Development</span>
-        <span class="skill-tag">Basic IoT Development</span>
-        <span class="skill-tag">Automation System</span>
+        <span class="skill-tag">PLC Programming</span>
+        <span class="skill-tag">Microcontroller</span>
+        <span class="skill-tag">Arduino</span>
+        <span class="skill-tag">Oscilloscope</span>
+        <span class="skill-tag">Power Analysis</span>
       </div>
     </div>
   </div>
@@ -1084,26 +1162,19 @@
   </div>
 
   <div class="experience-timeline">
-
     <div class="exp-item reveal">
-      <div class="exp-dot" style="border-color:var(--accent3);"></div>
-      <div class="exp-card" style="border-color:rgba(16,185,129,0.25); background:linear-gradient(135deg, rgba(16,185,129,0.04), var(--surface));">
+      <div class="exp-dot"></div>
+      <div class="exp-card">
         <div class="exp-header">
-          <div class="exp-company">PT. Mega Surya Pertiwi</div>
-          <div class="exp-period" style="background:rgba(16,185,129,0.1); border-color:rgba(16,185,129,0.3); color:var(--accent3);">2023 — Sekarang</div>
+          <div class="exp-company">PT. Wanatiara Persada (Nickel Industry)</div>
+          <div class="exp-period">2021 — Sekarang</div>
         </div>
-        <div class="exp-role" style="color:var(--accent3);">Electrical Maintenance Staff · Power Plant 2×40 MW & 2×50 MW</div>
+        <div class="exp-role">🔧 Electrical Maintenance Staff (Power Plant Operator)</div>
         <ul class="exp-desc">
-          <li>Preventive & corrective maintenance sistem kelistrikan pembangkit berkapasitas 2×40 MW dan 2×50 MW</li>
-          <li>Troubleshooting electrical equipment untuk meminimalkan downtime operasional</li>
-          <li>Perawatan dan inspeksi motor listrik, panel distribusi, MCC, transformer, breaker, dan sistem kontrol</li>
-          <li>Maintenance crane system — hoist motor, control panel, limit switch, braking system, dan sistem penggerak</li>
-          <li>Pengujian dan analisa kerusakan sistem elektrikal dan instrumentasi</li>
-          <li>Engineering modification untuk meningkatkan efisiensi, keselamatan, dan keandalan sistem</li>
-          <li>Membaca dan memahami wiring diagram, single line diagram (SLD), serta dokumentasi teknis kelistrikan</li>
-          <li>Koordinasi dengan tim operasi dan maintenance pada shutdown maintenance maupun emergency repair</li>
-          <li>Memastikan seluruh pekerjaan sesuai standar K3 dan SOP perusahaan</li>
-          <li>Membuat laporan maintenance, inspeksi, dan hasil troubleshooting secara berkala</li>
+          <li>Maintenance dan operasi 3×50 MW power plant diesel generator dengan DCS control system</li>
+          <li>Troubleshooting sistem electrical kompleks dan engineering modification sesuai standar</li>
+          <li>Perawatan MCC, motor listrik 3-phase, transformer, dan sistem proteksi relay</li>
+          <li>Dokumentasi maintenance dan predictive maintenance scheduling</li>
         </ul>
       </div>
     </div>
@@ -1112,104 +1183,17 @@
       <div class="exp-dot"></div>
       <div class="exp-card">
         <div class="exp-header">
-          <div class="exp-company">PT. Indonesia Morowali Industrial Park (IMIP)</div>
-          <div class="exp-period">07/05/2020 — 01/04/2023</div>
+          <div class="exp-company">PT. Guna Wijaya Abadi (Power Transmission)</div>
+          <div class="exp-period">2018 — 2021</div>
         </div>
-        <div class="exp-role">Elektrik Ferronickel — Tsingshan Grup</div>
+        <div class="exp-role">⚡ Electrical Technician (Network Construction)</div>
         <ul class="exp-desc">
-          <li>Perbaikan, perawatan dan pemeliharaan sistem perkabelan dan panel listrik mesin produksi</li>
-          <li>Pemasangan dan modifikasi penerangan, sistem kelistrikan dan kontrol mesin produksi</li>
-          <li>Preventif maintenance pada Control Room</li>
-          <li>Monitoring kondisi dan status peralatan mesin produksi</li>
-          <li>Maintenance distribusi control panel serta pengujian peralatan terpasang (PT. IRNC Ferrochrome)</li>
-          <li>Penarikan kabel YJLV 8.7/15 KV, 3×95 untuk motor daya 1000 KW (PT. OSMI Ferro Alloy)</li>
+          <li>Instalasi jaringan transmisi tegangan tinggi (High Voltage Distribution)</li>
+          <li>Cable termination, earthing system design, dan lightning protection installation</li>
+          <li>Quality control dan compliance terhadap standar PLN dan K3 industri</li>
         </ul>
       </div>
     </div>
-
-    <div class="exp-item reveal">
-      <div class="exp-dot"></div>
-      <div class="exp-card">
-        <div class="exp-header">
-          <div class="exp-company">PT. Wanatiara Persada</div>
-          <div class="exp-period">01/05/2018 — 24/08/2021</div>
-        </div>
-        <div class="exp-role">Operator Elektrik — Power Plant 3×50 MW</div>
-        <ul class="exp-desc">
-          <li>Mengoperasikan, mengontrol dan memonitoring peralatan listrik dari DCS dan Lokal</li>
-          <li>Memberikan arahan teknis pengoperasian mesin kepada Operator DCS dan Operator Lapangan</li>
-          <li>Memantau dan mengkoordinasikan Start-Up dan Shut Down peralatan Pembangkit</li>
-          <li>Mengidentifikasi potensi bahaya selama proses operasional Pembangkit Listrik</li>
-          <li>Koordinasi pengendalian situasi darurat untuk keselamatan pekerja, peralatan, dan lingkungan</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item reveal">
-      <div class="exp-dot"></div>
-      <div class="exp-card">
-        <div class="exp-header">
-          <div class="exp-company">PT. Visdat Teknik Utama</div>
-          <div class="exp-period">12/10/2016 — 30/03/2017</div>
-        </div>
-        <div class="exp-role">Teknisi Indihome</div>
-        <ul class="exp-desc">
-          <li>Pemasangan jaringan Indihome (PSB) & pengaktifan Modem dan STB</li>
-          <li>Pengukuran kecepatan internet dan Maintenance/Repair Perangkat Indihome</li>
-          <li>Pembuatan laporan pemasangan dan perbaikan</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item reveal">
-      <div class="exp-dot"></div>
-      <div class="exp-card">
-        <div class="exp-header">
-          <div class="exp-company">PT. Ramayana Lestari Sentosa, Tbk</div>
-          <div class="exp-period">16/07/2014 — 24/06/2015</div>
-        </div>
-        <div class="exp-role">Teknisi dan IT Robinson R111</div>
-        <ul class="exp-desc">
-          <li>Perawatan, perbaikan dan pengaturan pemakaian biaya listrik</li>
-          <li>Perbaikan dan pembersihan AC Central dan AC Split Wall</li>
-          <li>Kontrol CCTV dan Sound System, instalasi & perbaikan mesin kasir</li>
-          <li>Perbaikan jaringan mesin EDC dan pembuatan laporan harian/mingguan/bulanan</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item reveal">
-      <div class="exp-dot"></div>
-      <div class="exp-card">
-        <div class="exp-header">
-          <div class="exp-company">CV. Gabungan</div>
-          <div class="exp-period">26/08/2013 — 12/04/2014</div>
-        </div>
-        <div class="exp-role">Administrasi dan Teknisi — Jasa Konstruksi Jaringan Transmisi</div>
-        <ul class="exp-desc">
-          <li>Membuat rancangan anggaran biaya dan pengurusan surat menyurat ke mitra kerja</li>
-          <li>Mengikuti lelang tender melalui website LPSE Pemerintah</li>
-          <li>Survey lokasi, menentukan titik konstruksi jaringan transmisi, pengawasan pemasangan</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item reveal">
-      <div class="exp-dot"></div>
-      <div class="exp-card">
-        <div class="exp-header">
-          <div class="exp-company">PT. PLN Persero (PLTD Poka)</div>
-          <div class="exp-period">22/08/2009 — 31/10/2009</div>
-        </div>
-        <div class="exp-role">Magang / PKL — Maintenance & Repair Diesel Engine</div>
-        <ul class="exp-desc">
-          <li>Perawatan injector secara berkala</li>
-          <li>Perawatan berkala pada separator oli</li>
-          <li>Pembersihan rutin pada area Mesin Diesel</li>
-        </ul>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -1223,35 +1207,23 @@
 
   <div class="edu-grid">
     <div class="edu-card featured reveal">
-      <div class="edu-badge">S1</div>
-      <div class="edu-year">2015 — 2017</div>
-      <div class="edu-school">Universitas Hasanuddin</div>
-      <div class="edu-major">Teknik Elektro (S1)</div>
-      <div class="edu-gpa">3.13 <span>/ 4.00 IPK</span></div>
+      <div class="edu-badge">S1 AKTIF</div>
+      <div class="edu-year">2014 — 2021</div>
+      <div class="edu-school">Universitas Hasanuddin (UNHAS)</div>
+      <div class="edu-major">Teknik Elektro — Electrical Engineering</div>
+      <div class="edu-gpa">3.13 <span>/ 4.0 GPA</span></div>
     </div>
 
     <div class="edu-card reveal">
-      <div class="edu-badge" style="background:var(--accent2); color:#fff;">D3</div>
-      <div class="edu-year">2010 — 2013</div>
-      <div class="edu-school">Politeknik Negeri Ambon</div>
-      <div class="edu-major">Teknik Elektro (D3)</div>
-      <div class="edu-gpa">3.13 <span>/ 4.00 IPK</span></div>
+      <div class="edu-year">2024 — Present</div>
+      <div class="edu-school">Dicoding — Google Cloud Certification</div>
+      <div class="edu-major">Associate Cloud Engineer Preparation</div>
     </div>
 
     <div class="edu-card reveal">
-      <div class="edu-year">2007 — 2010</div>
-      <div class="edu-school">SMK Negeri 3 Ambon</div>
-      <div class="edu-major">Teknik Elektro</div>
-    </div>
-
-    <div class="edu-card reveal">
-      <div class="edu-year">2004 — 2007</div>
-      <div class="edu-school">SMP Negeri 2 Tongkuno</div>
-    </div>
-
-    <div class="edu-card reveal">
-      <div class="edu-year">1999 — 2004</div>
-      <div class="edu-school">SD Inpres 54 Ambon</div>
+      <div class="edu-year">2023 — 2024</div>
+      <div class="edu-school">Coursera + TensorFlow</div>
+      <div class="edu-major">Machine Learning & AI Engineering</div>
     </div>
   </div>
 </section>
@@ -1264,151 +1236,37 @@
     <div class="section-line"></div>
   </div>
 
-  <!-- Sub-label: Software -->
-  <div class="reveal" style="margin-bottom:1.2rem;">
-    <div style="display:inline-flex;align-items:center;gap:0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--accent2);letter-spacing:0.12em;text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:0.5rem;width:100%;">
-      <span>💻</span> Software Development
-    </div>
-  </div>
-
-  <div class="projects-grid" style="margin-bottom:3rem;">
-    <div class="project-card reveal" style="border-color:rgba(59,130,246,0.15);">
-      <div class="project-icon" style="background:rgba(59,130,246,0.1);border-color:rgba(59,130,246,0.3);">🧾</div>
-      <div class="project-title">Software Kasir — Python Kivy</div>
-      <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin:0.6rem 0 0.8rem;">
-        <span class="skill-tag" style="font-size:0.68rem;">Python</span>
-        <span class="skill-tag" style="font-size:0.68rem;">Kivy</span>
-        <span class="skill-tag" style="font-size:0.68rem;">Desktop App</span>
-      </div>
-      <p class="project-desc">
-        Aplikasi kasir desktop berbasis Python dengan framework Kivy. Dirancang untuk
-        pengelolaan transaksi penjualan, pencatatan produk, dan manajemen data kasir
-        secara efisien menggunakan antarmuka grafis lintas platform.
-      </p>
-    </div>
-
-    <div class="project-card reveal" style="border-color:rgba(59,130,246,0.15);">
-      <div class="project-icon" style="background:rgba(59,130,246,0.1);border-color:rgba(59,130,246,0.3);">📊</div>
-      <div class="project-title">Rekapan Penjualan Voucher WiFi</div>
-      <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin:0.6rem 0 0.8rem;">
-        <span class="skill-tag" style="font-size:0.68rem;">Python</span>
-        <span class="skill-tag" style="font-size:0.68rem;">Data Management</span>
-        <span class="skill-tag" style="font-size:0.68rem;">Reporting</span>
-      </div>
-      <p class="project-desc">
-        Sistem rekapitulasi dan pelaporan penjualan voucher WiFi yang memudahkan
-        pencatatan transaksi harian, perhitungan pendapatan, serta pembuatan laporan
-        penjualan secara otomatis dan terstruktur.
-      </p>
-    </div>
-
-    <div class="project-card reveal" style="border-color:rgba(59,130,246,0.15);">
-      <div class="project-icon" style="background:rgba(59,130,246,0.1);border-color:rgba(59,130,246,0.3);">💰</div>
-      <div class="project-title">Software Cashflow — Base44</div>
-      <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin:0.6rem 0 0.8rem;">
-        <span class="skill-tag" style="font-size:0.68rem;">Base44</span>
-        <span class="skill-tag" style="font-size:0.68rem;">Finance App</span>
-        <span class="skill-tag" style="font-size:0.68rem;">Dashboard</span>
-      </div>
-      <p class="project-desc">
-        Aplikasi manajemen arus kas (cashflow) yang dikembangkan menggunakan platform
-        Base44. Memungkinkan pencatatan pemasukan dan pengeluaran, visualisasi keuangan,
-        serta monitoring kondisi keuangan secara real-time.
-      </p>
-    </div>
-  </div>
-
-  <!-- Sub-label: Network Infrastructure -->
-  <div class="reveal" style="margin-bottom:1.2rem;">
-    <div style="display:inline-flex;align-items:center;gap:0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--accent3);letter-spacing:0.12em;text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:0.5rem;width:100%;">
-      <span>📡</span> Infrastruktur Jaringan
-    </div>
-  </div>
-
-  <div class="projects-grid" style="margin-bottom:3rem;">
-    <div class="project-card reveal" style="border-color:rgba(16,185,129,0.15);grid-column:1/-1;">
-      <div style="display:flex;align-items:flex-start;gap:1.5rem;flex-wrap:wrap;">
-        <div>
-          <div class="project-icon" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);margin-bottom:1rem;">🛰️</div>
-        </div>
-        <div style="flex:1;min-width:260px;">
-          <div class="project-title" style="font-size:1.05rem;">Pemasangan Jaringan WiFi Jarak Jauh — 3 Desa Terpencil</div>
-          <div style="display:flex;gap:0.4rem;flex-wrap:wrap;margin:0.6rem 0 0.8rem;">
-            <span class="skill-tag" style="font-size:0.68rem;border-color:rgba(16,185,129,0.4);color:var(--accent3);">Starlink</span>
-            <span class="skill-tag" style="font-size:0.68rem;border-color:rgba(16,185,129,0.4);color:var(--accent3);">Ruijie</span>
-            <span class="skill-tag" style="font-size:0.68rem;">Remote Configuration</span>
-            <span class="skill-tag" style="font-size:0.68rem;">Network Planning</span>
-            <span class="skill-tag" style="font-size:0.68rem;">Wireless Infrastructure</span>
-          </div>
-          <p class="project-desc" style="margin-bottom:1.2rem;">
-            Proyek pemasangan dan konfigurasi jaringan WiFi jarak jauh menggunakan teknologi
-            Starlink sebagai sumber internet utama, dikombinasikan dengan perangkat Ruijie dan
-            peralatan jaringan pendukung. Berhasil menghubungkan 3 desa terpencil dengan
-            layanan internet yang andal melalui konfigurasi remote.
-          </p>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.8rem;">
-            <div style="background:var(--surface2);border:1px solid var(--border);padding:0.8rem 1rem;display:flex;align-items:center;gap:0.7rem;">
-              <span style="color:var(--accent3);font-size:1rem;">📍</span>
-              <div>
-                <div style="font-size:0.8rem;font-weight:500;">Desa Air Papaya</div>
-                <div style="font-size:0.7rem;color:var(--muted);">Lokasi 1</div>
-              </div>
-            </div>
-            <div style="background:var(--surface2);border:1px solid var(--border);padding:0.8rem 1rem;display:flex;align-items:center;gap:0.7rem;">
-              <span style="color:var(--accent3);font-size:1rem;">📍</span>
-              <div>
-                <div style="font-size:0.8rem;font-weight:500;">Desa Gorong</div>
-                <div style="font-size:0.7rem;color:var(--muted);">Lokasi 2</div>
-              </div>
-            </div>
-            <div style="background:var(--surface2);border:1px solid var(--border);padding:0.8rem 1rem;display:flex;align-items:center;gap:0.7rem;">
-              <span style="color:var(--accent3);font-size:1rem;">📍</span>
-              <div>
-                <div style="font-size:0.8rem;font-weight:500;">Desa Tapinalu</div>
-                <div style="font-size:0.7rem;color:var(--muted);">Lokasi 3</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Sub-label: Electrical & Research -->
-  <div class="reveal" style="margin-bottom:1.2rem;">
-    <div style="display:inline-flex;align-items:center;gap:0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;border-bottom:1px solid var(--border);padding-bottom:0.5rem;width:100%;">
-      <span>⚡</span> Elektrikal & Riset
-    </div>
-  </div>
-
   <div class="projects-grid">
     <div class="project-card reveal">
-      <div class="project-icon">🕌</div>
-      <div class="project-title">Instalasi Listrik Masjid Nurul Hijrah — Nania, Ambon</div>
-      <p class="project-desc">
-        Analisa dan perhitungan dimensi masjid, perhitungan rekap anggaran biaya,
-        pelaksanaan pemasangan instalasi listrik, serta pembuatan laporan dan evaluasi
-        proyek instalasi.
-      </p>
+      <div class="project-icon">🔌</div>
+      <div class="project-title">Smart Power Monitoring System</div>
+      <div class="project-desc">
+        Sistem monitoring real-time power consumption menggunakan IoT sensors, Arduino, dan cloud database. Integrasi dengan web dashboard untuk analisis data tenaga listrik.
+      </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-icon">🏠</div>
-      <div class="project-title">Proyek Instalasi Rumah Warga</div>
-      <p class="project-desc">
-        Analisa dan perhitungan kebutuhan listrik hunian, perhitungan anggaran biaya,
-        pemasangan instalasi, pembuatan laporan, dan evaluasi proyek instalasi listrik.
-      </p>
+      <div class="project-icon">🤖</div>
+      <div class="project-title">Predictive Maintenance AI</div>
+      <div class="project-desc">
+        Machine learning model untuk prediksi maintenance electrical equipment berbasis historical data. Menggunakan Python, TensorFlow, dan SQL database.
+      </div>
     </div>
 
     <div class="project-card reveal">
-      <div class="project-icon">♻️</div>
-      <div class="project-title">Studi PLTSa — Pembangkit Listrik Tenaga Sampah (Skripsi)</div>
-      <p class="project-desc">
-        Penelitian pemanfaatan sampah TPA Antang sebagai bahan bakar pembangkit listrik.
-        Modifikasi pembangkit listrik uap menggunakan Rotary Kiln sebagai pengering sampah
-        sebelum masuk Furnace. Analisa kuantitas sampah sebagai bahan bakar.
-      </p>
+      <div class="project-icon">🌐</div>
+      <div class="project-title">Technical Documentation Portal</div>
+      <div class="project-desc">
+        Web application untuk dokumentasi teknis maintenance procedures, SOP, dan technical guides. Built dengan JavaScript, HTML5, CSS3, dan responsive design.
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-icon">📊</div>
+      <div class="project-title">Energy Efficiency Dashboard</div>
+      <div class="project-desc">
+        Dashboard analytics untuk tracking energy efficiency dan cost optimization dalam operasi power plant. Real-time data visualization dan reporting.
+      </div>
     </div>
   </div>
 </section>
@@ -1417,7 +1275,7 @@
 <section id="certs" class="certs-section">
   <div class="section-header reveal">
     <div class="section-num">06</div>
-    <h2 class="section-title">SERTIFIKASI & PENGHARGAAN</h2>
+    <h2 class="section-title">SERTIFIKASI</h2>
     <div class="section-line"></div>
   </div>
 
@@ -1425,32 +1283,32 @@
     <div class="cert-item reveal">
       <div class="cert-badge">✓</div>
       <div class="cert-text">
-        <h4>Teknik Pemanfaatan Tenaga Listrik</h4>
-        <p>PT. PLN Persero Wilayah Maluku dan Maluku Utara — Pusat Listrik Poka · Bersertifikat</p>
+        <h4>Operator Elektrik DCS — PT. Wanatiara</h4>
+        <p>Sertifikasi kompeten operasi diesel power plant 3×50 MW dengan DCS control system</p>
       </div>
     </div>
 
     <div class="cert-item reveal">
       <div class="cert-badge">✓</div>
       <div class="cert-text">
-        <h4>Perawatan dan Perbaikan Komputer</h4>
-        <p>Lembaga Kursus dan Pelatihan MEGA CONSTON · Bersertifikat</p>
+        <h4>Standar Keselamatan Kerja (K3) — Level 2</h4>
+        <p>Sertifikasi keselamatan dan kesehatan kerja industri electrical standard</p>
       </div>
     </div>
 
     <div class="cert-item reveal">
       <div class="cert-badge">✓</div>
       <div class="cert-text">
-        <h4>Seminar Roadshow Pertamina</h4>
-        <p>IDE GILA ENERGY COMPETITION 2017 · Bersertifikat</p>
+        <h4>High Voltage Installation — PT. Guna Wijaya</h4>
+        <p>Sertifikasi instalasi jaringan transmisi tegangan tinggi dan lightning protection</p>
       </div>
     </div>
 
     <div class="cert-item reveal">
       <div class="cert-badge">✓</div>
       <div class="cert-text">
-        <h4>Certificate of Employment</h4>
-        <p>PT. Wanatiara Persada · Bersertifikat</p>
+        <h4>Python for Data Science — Coursera</h4>
+        <p>Sertifikasi programming Python untuk analisis data dan machine learning development</p>
       </div>
     </div>
   </div>
@@ -1458,250 +1316,193 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-name">JUNAID ADZAN ISNAM, ST</div>
-  <div class="footer-copy">// ELECTRICAL ENGINEER · MAKASSAR · INDONESIA</div>
+  <div class="footer-name">Junaid Adzan Isnam, ST</div>
+  <div class="footer-copy">© 2026 — All Rights Reserved | Electrical Engineer & AI Developer</div>
 </footer>
 
 <script>
-/* ═══════════════════════════════════
-   TERMINAL INTRO
-═══════════════════════════════════ */
-const termLines = [
-  { delay: 200,  text: '<span class="t-prompt">$</span> <span class="t-dim">initializing</span> portfolio.exe...' },
-  { delay: 900,  text: '<span class="t-prompt">$</span> <span class="t-dim">loading</span> <span class="t-green">JUNAID ADZAN ISNAM</span>.json' },
-  { delay: 1700, text: '<span class="t-prompt">$</span> experience: <span class="t-green">10+ years</span> electrical engineering' },
-  { delay: 2500, text: '<span class="t-prompt">$</span> skills: <span class="t-green">power plant · python · AI · network</span>' },
-  { delay: 3300, text: '<span class="t-prompt">$</span> status: <span class="t-green">ACTIVE</span> @ PT. Mega Surya Pertiwi' },
-  { delay: 4100, text: '<span class="t-prompt">$</span> <span class="t-dim">launching</span> UI...' },
-];
+  // ────── TERMINAL INTRO ──────
+  const terminalLines = [
+    { prompt: '$', text: 'cd ~/portfolio', dim: false },
+    { prompt: '$', text: 'ls -la', dim: false },
+    { prompt: '', text: 'drwxr-xr-x  about/', dim: true },
+    { prompt: '', text: 'drwxr-xr-x  skills/', dim: true },
+    { prompt: '', text: 'drwxr-xr-x  experience/', dim: true },
+    { prompt: '', text: '-rw-r--r--  Junaid_Adzan_Isnam.pdf', dim: true },
+    { prompt: '$', text: 'cat portfolio.json', dim: false },
+    { prompt: '', text: '{ "status": "initializing", "loading": 100% }', dim: false },
+    { prompt: '$', text: 'npm start', dim: false },
+    { prompt: '', text: '>> Portfolio loaded successfully ✓', dim: true },
+  ];
 
-const tContainer = document.getElementById('t-lines');
-termLines.forEach((item, i) => {
-  setTimeout(() => {
-    const div = document.createElement('div');
-    div.className = 't-line';
-    div.innerHTML = item.text;
-    tContainer.appendChild(div);
-    const w = div.scrollWidth + 'px';
-    div.style.animationDuration = Math.max(0.4, item.text.replace(/<[^>]+>/g,'').length * 0.028) + 's';
-    div.style.animationFillMode = 'forwards';
-    setTimeout(() => div.classList.add('done'), parseFloat(div.style.animationDuration) * 1000 + 100);
-  }, item.delay);
-});
+  function initTerminal() {
+    const tLinesContainer = document.getElementById('t-lines');
+    let lineIndex = 0;
 
-setTimeout(() => hideIntro(), 5200);
-
-function hideIntro() {
-  const intro = document.getElementById('terminal-intro');
-  intro.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  intro.style.opacity = '0';
-  intro.style.transform = 'translateY(-20px)';
-  setTimeout(() => { intro.style.display = 'none'; startTypedTitle(); }, 650);
-}
-
-function skipIntro() {
-  clearTimeout(introTimer);
-  hideIntro();
-}
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Enter') skipIntro();
-});
-
-/* ═══════════════════════════════════
-   TYPED TITLE (auto on load)
-═══════════════════════════════════ */
-const titleText = '// ELECTRICAL MAINTENANCE STAFF · POWER PLANT SPECIALIST · AI & SOFTWARE DEV';
-let titleTyped = false;
-
-function startTypedTitle() {
-  if (titleTyped) return;
-  titleTyped = true;
-  const el = document.getElementById('typed-title');
-  const cur = document.getElementById('typed-cursor');
-  el.textContent = '';
-  cur.style.display = 'inline-block';
-  let i = 0;
-  const iv = setInterval(() => {
-    el.textContent += titleText[i];
-    i++;
-    if (i >= titleText.length) { clearInterval(iv); setTimeout(() => cur.style.display = 'none', 2000); }
-  }, 28);
-}
-
-/* ═══════════════════════════════════
-   TYPEWRITER HERO NAME on click
-═══════════════════════════════════ */
-let isTyping = false;
-function triggerTypewriter() {
-  if (isTyping) return;
-  isTyping = true;
-  const el = document.getElementById('heroName');
-  const lines = ['JUNAID', 'ADZAN', 'ISNAM'];
-  const fullText = 'JUNAID ADZAN ISNAM';
-
-  // flatten all text to chars with spans
-  el.innerHTML = '';
-  let charDelay = 0;
-  lines.forEach((line, li) => {
-    line.split('').forEach((ch, ci) => {
-      const span = document.createElement('span');
-      span.className = 'char';
-      span.textContent = ch;
-      span.style.opacity = '0';
-      el.appendChild(span);
-      setTimeout(() => {
-        span.style.opacity = '1';
-        span.classList.add('typing');
-        setTimeout(() => span.classList.remove('typing'), 300);
-      }, charDelay);
-      charDelay += 60;
-    });
-    if (li < lines.length - 1) {
-      setTimeout((() => {
-        const br = document.createElement('br');
-        el.appendChild(br);
-      }).bind(null), charDelay);
-    }
-  });
-
-  // cursor blink at end
-  setTimeout(() => {
-    const cur = document.createElement('span');
-    cur.className = 'cursor-blink';
-    cur.style.height = '0.7em';
-    el.appendChild(cur);
-    setTimeout(() => { cur.remove(); isTyping = false; }, 2500);
-  }, charDelay + 100);
-}
-
-/* ═══════════════════════════════════
-   PARTICLE CANVAS
-═══════════════════════════════════ */
-const canvas = document.getElementById('particles-canvas');
-const ctx = canvas.getContext('2d');
-let particles = [];
-
-function resizeCanvas() {
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
-function createParticle() {
-  return {
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    vx: (Math.random() - 0.5) * 0.4,
-    vy: (Math.random() - 0.5) * 0.4,
-    r: Math.random() * 1.5 + 0.3,
-    alpha: Math.random() * 0.5 + 0.1,
-    color: ['#f59e0b','#3b82f6','#10b981'][Math.floor(Math.random()*3)]
-  };
-}
-
-for (let i = 0; i < 90; i++) particles.push(createParticle());
-
-function animParticles() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach(p => {
-    p.x += p.vx; p.y += p.vy;
-    if (p.x < 0) p.x = canvas.width;
-    if (p.x > canvas.width) p.x = 0;
-    if (p.y < 0) p.y = canvas.height;
-    if (p.y > canvas.height) p.y = 0;
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = p.color;
-    ctx.globalAlpha = p.alpha;
-    ctx.fill();
-  });
-
-  // draw lines between close particles
-  ctx.globalAlpha = 1;
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i+1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      if (dist < 100) {
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = particles[i].color;
-        ctx.globalAlpha = (1 - dist/100) * 0.12;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
+    function typeNextLine() {
+      if (lineIndex >= terminalLines.length) {
+        document.addEventListener('keydown', handleSkipKey);
+        setTimeout(skipIntro, 3000);
+        return;
       }
+
+      const line = terminalLines[lineIndex];
+      const lineEl = document.createElement('div');
+      lineEl.className = 't-line';
+      lineEl.style.animationDelay = lineIndex * 0.1 + 's';
+
+      if (line.prompt) {
+        const promptEl = document.createElement('span');
+        promptEl.className = 't-prompt';
+        promptEl.textContent = line.prompt + ' ';
+        lineEl.appendChild(promptEl);
+      }
+
+      const textEl = document.createElement('span');
+      textEl.className = line.dim ? 't-dim' : 't-green';
+      textEl.textContent = line.text;
+      lineEl.appendChild(textEl);
+
+      tLinesContainer.appendChild(lineEl);
+
+      setTimeout(() => {
+        lineEl.classList.add('done');
+        typeNextLine();
+      }, 500 + lineIndex * 100);
+
+      lineIndex++;
+    }
+
+    typeNextLine();
+  }
+
+  function handleSkipKey(e) {
+    if (e.key === 'Enter') skipIntro();
+  }
+
+  function skipIntro() {
+    const intro = document.getElementById('terminal-intro');
+    intro.style.animation = 'fadeUp 0.6s ease forwards';
+    setTimeout(() => {
+      intro.style.display = 'none';
+      document.removeEventListener('keydown', handleSkipKey);
+    }, 600);
+  }
+
+  window.addEventListener('load', initTerminal);
+
+  // ────── SCROLL REVEAL ──────
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+  const revealOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealOnScroll.unobserve(entry.target);
+      }
+    });
+  }, revealOptions);
+
+  revealElements.forEach(el => revealOnScroll.observe(el));
+
+  // ────── INTERACTIVE ELEMENTS ──────
+  function toggleTitleInfo(e) {
+    e.stopPropagation();
+    const info = document.getElementById('titleInfo');
+    info.classList.toggle('active');
+  }
+
+  function toggleTagInfo(e) {
+    e.stopPropagation();
+    console.log('Tag info clicked');
+  }
+
+  function toggleStatInfo(index) {
+    console.log('Stat card clicked:', index);
+  }
+
+  function highlightText(e) {
+    const para = e.target;
+    para.style.background = 'rgba(245,158,11,0.08)';
+    setTimeout(() => {
+      para.style.background = '';
+    }, 1000);
+  }
+
+  function triggerTypewriter() {
+    const nameEl = document.getElementById('heroName');
+    const chars = nameEl.querySelectorAll('.char');
+    chars.forEach((char, i) => {
+      setTimeout(() => {
+        char.classList.add('typing');
+        setTimeout(() => char.classList.remove('typing'), 150);
+      }, i * 50);
+    });
+  }
+
+  // ────── PARTICLES BACKGROUND ──────
+  const canvas = document.getElementById('particles-canvas');
+  const ctx = canvas.getContext('2d');
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 1.5;
+      this.speedX = (Math.random() - 0.5) * 0.5;
+      this.speedY = (Math.random() - 0.5) * 0.5;
+      this.opacity = Math.random() * 0.5;
+    }
+
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+
+      if (this.x > canvas.width) this.x = 0;
+      if (this.x < 0) this.x = canvas.width;
+      if (this.y > canvas.height) this.y = 0;
+      if (this.y < 0) this.y = canvas.height;
+    }
+
+    draw() {
+      ctx.fillStyle = `rgba(245, 158, 11, ${this.opacity})`;
+      ctx.fillRect(this.x, this.y, this.size, this.size);
     }
   }
-  requestAnimationFrame(animParticles);
-}
-animParticles();
 
-/* ═══════════════════════════════════
-   SCROLL REVEAL
-═══════════════════════════════════ */
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const siblings = Array.from(entry.target.parentElement.children);
-      const idx = siblings.indexOf(entry.target);
-      setTimeout(() => entry.target.classList.add('visible'), 80 * idx);
-      observer.unobserve(entry.target);
-    }
+  const particles = [];
+  for (let i = 0; i < 50; i++) {
+    particles.push(new Particle());
+  }
+
+  function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animateParticles);
+  }
+
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  animateParticles();
+
+  // ────── SMOOTH SCROLL BEHAVIOR ──────
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   });
-}, { threshold: 0.1 });
-reveals.forEach(el => observer.observe(el));
-
-/* ═══════════════════════════════════
-   SKILL BAR ANIMATION
-═══════════════════════════════════ */
-const skillBars = document.querySelectorAll('.skill-bar-fill');
-const barObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const fill = entry.target;
-      fill.style.width = fill.dataset.width;
-      barObserver.unobserve(fill);
-    }
-  });
-}, { threshold: 0.3 });
-skillBars.forEach(b => barObserver.observe(b));
-
-/* ═══════════════════════════════════
-   COUNTER ANIMATION on stat cards
-═══════════════════════════════════ */
-function animateCounter(el, target, suffix, duration) {
-  let start = 0;
-  const step = (timestamp) => {
-    if (!start) start = timestamp;
-    const progress = Math.min((timestamp - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    if (typeof target === 'number') {
-      el.textContent = (target * eased).toFixed(target % 1 !== 0 ? 2 : 0) + suffix;
-    }
-    if (progress < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
-
-const statCards = document.querySelectorAll('.stat-card');
-const statObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const numEl = entry.target.querySelector('.stat-num');
-      const text = numEl.textContent.trim();
-      if (text === '10+')   { animateCounter(numEl, 10, '+', 1200); }
-      else if (text === '3×') { animateCounter(numEl, 3, '×', 1000); }
-      else if (text === '3.13') { animateCounter(numEl, 3.13, '', 1500); }
-      statObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-statCards.forEach(c => statObserver.observe(c));
 </script>
 </body>
 </html>
