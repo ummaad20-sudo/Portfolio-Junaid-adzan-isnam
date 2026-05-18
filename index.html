@@ -105,15 +105,6 @@
     border-radius: 2px;
     margin-bottom: 2rem;
     animation: fadeUp 0.8s ease both;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.3s;
-  }
-  .hero-tag:hover {
-    background: rgba(245,158,11,0.2);
-    border-color: rgba(245,158,11,0.5);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(245,158,11,0.15);
   }
   .hero-tag::before {
     content: '▶';
@@ -137,35 +128,6 @@
     letter-spacing: 0.08em;
     margin: 1.5rem 0;
     animation: fadeUp 0.8s 0.2s ease both;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .hero-title:hover {
-    color: var(--accent);
-    text-shadow: 0 0 20px rgba(245,158,11,0.3);
-  }
-
-  .hero-title-expanded {
-    margin-top: 1rem;
-    padding: 1.2rem 1.5rem;
-    background: rgba(59,130,246,0.08);
-    border: 1px solid rgba(59,130,246,0.2);
-    border-radius: 4px;
-    font-size: 0.85rem;
-    line-height: 1.6;
-    color: var(--text);
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: none;
-  }
-
-  .hero-title-expanded.active {
-    max-height: 200px;
-    opacity: 1;
-    animation: slideDown 0.4s ease;
   }
 
   .hero-desc {
@@ -232,7 +194,6 @@
     position: relative;
     overflow: hidden;
     transition: transform 0.2s, border-color 0.2s;
-    cursor: pointer;
   }
   .stat-card::before {
     content: '';
@@ -315,16 +276,6 @@
     font-size: 0.95rem;
     line-height: 1.9;
     margin-bottom: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    padding: 0.8rem;
-    border-radius: 3px;
-  }
-
-  .about-text p:hover {
-    background: rgba(245,158,11,0.05);
-    border-left: 3px solid var(--accent);
-    padding-left: 1.2rem;
   }
 
   .contact-list { display: flex; flex-direction: column; gap: 0.8rem; }
@@ -336,13 +287,6 @@
     background: var(--surface);
     border: 1px solid var(--border);
     font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .contact-item:hover {
-    background: rgba(245,158,11,0.05);
-    border-color: var(--accent);
-    transform: translateX(4px);
   }
   .contact-icon {
     width: 32px;
@@ -371,14 +315,9 @@
     border: 1px solid var(--border);
     padding: 1.8rem;
     position: relative;
-    transition: all 0.3s;
-    cursor: pointer;
+    transition: border-color 0.3s;
   }
-  .skill-category:hover { 
-    border-color: rgba(245,158,11,0.4);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(245,158,11,0.1);
-  }
+  .skill-category:hover { border-color: rgba(245,158,11,0.4); }
 
   .skill-category-title {
     font-family: 'JetBrains Mono', monospace;
@@ -400,24 +339,12 @@
     font-size: 0.75rem;
     letter-spacing: 0.05em;
     transition: all 0.2s;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-  .skill-tag::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    opacity: 0;
-    transition: opacity 0.2s;
-    z-index: -1;
+    cursor: default;
   }
   .skill-tag:hover {
     background: rgba(245,158,11,0.1);
     border-color: rgba(245,158,11,0.4);
     color: var(--accent);
-    transform: scale(1.05);
   }
 
   /* ── EXPERIENCE ── */
@@ -450,7 +377,6 @@
     margin-top: 0.3rem;
     position: relative;
     z-index: 1;
-    animation: dotPulse 2s ease-in-out infinite;
   }
   .exp-dot::after {
     content: '';
@@ -463,26 +389,9 @@
     background: var(--surface);
     border: 1px solid var(--border);
     padding: 1.5rem;
-    transition: all 0.3s;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
+    transition: border-color 0.3s;
   }
-  .exp-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s;
-  }
-  .exp-card:hover {
-    border-color: rgba(245,158,11,0.3);
-    transform: translateX(4px);
-  }
-  .exp-card:hover::before { transform: scaleX(1); }
+  .exp-card:hover { border-color: rgba(245,158,11,0.3); }
 
   .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem; }
 
@@ -521,7 +430,6 @@
     padding-left: 1rem;
     position: relative;
     margin-bottom: 0.3rem;
-    transition: all 0.2s;
   }
   .exp-desc li::before {
     content: '→';
@@ -547,7 +455,6 @@
     position: relative;
     overflow: hidden;
     transition: all 0.3s;
-    cursor: pointer;
   }
   .edu-card.featured {
     border-color: rgba(245,158,11,0.3);
@@ -614,7 +521,6 @@
     position: relative;
     overflow: hidden;
     transition: all 0.3s;
-    cursor: pointer;
   }
   .project-card::after {
     content: '';
@@ -663,7 +569,6 @@
     align-items: center;
     gap: 1.2rem;
     transition: all 0.2s;
-    cursor: pointer;
   }
   .cert-item:hover {
     border-color: rgba(16,185,129,0.4);
@@ -718,14 +623,6 @@
     from { opacity: 0; transform: translateX(30px); }
     to   { opacity: 1; transform: translateX(0); }
   }
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes dotPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.7); }
-    50% { box-shadow: 0 0 0 8px rgba(245,158,11,0); }
-  }
 
   /* Scroll reveal */
   .reveal {
@@ -738,202 +635,8 @@
     transform: none;
   }
 
-  /* ── TERMINAL INTRO ── */
-  #terminal-intro {
-    position: fixed;
-    inset: 0;
-    background: #000;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 3rem 4rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
-    color: #00ff41;
-    overflow: hidden;
-  }
-  #terminal-intro .t-line {
-    opacity: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid #00ff41;
-    width: 0;
-    animation: termType 0.5s steps(40) forwards;
-  }
-  #terminal-intro .t-line.done { border-right: none; }
-  .t-prompt { color: var(--accent); margin-right: 0.5rem; }
-  .t-dim { color: #444; }
-  .t-green { color: #00ff41; }
-  .t-skip {
-    position: absolute;
-    bottom: 2rem; right: 3rem;
-    font-size: 0.7rem;
-    color: #444;
-    cursor: pointer;
-    letter-spacing: 0.1em;
-    transition: color 0.2s;
-  }
-  .t-skip:hover { color: #00ff41; }
-
-  @keyframes termType {
-    from { width: 0; opacity: 1; }
-    to   { width: 100%; opacity: 1; }
-  }
-
-  /* ── PARTICLES CANVAS ── */
-  #particles-canvas {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.35;
-  }
-
-  /* ── TYPEWRITER HERO ── */
-  .hero-name {
-    cursor: pointer;
-    position: relative;
-    user-select: none;
-  }
-  .hero-name .char {
-    display: inline-block;
-    transition: color 0.1s, transform 0.1s;
-  }
-  .hero-name .char.typing {
-    color: var(--accent);
-    text-shadow: 0 0 20px rgba(245,158,11,0.8);
-    animation: charPop 0.15s ease;
-  }
-  @keyframes charPop {
-    0%   { transform: scaleY(1.4) translateY(-4px); }
-    100% { transform: scaleY(1) translateY(0); }
-  }
-
-  .hero-name .cursor-blink {
-    display: inline-block;
-    width: 6px;
-    background: var(--accent);
-    animation: blink 0.8s step-end infinite;
-    vertical-align: middle;
-    margin-left: 2px;
-    border-radius: 1px;
-  }
-  @keyframes blink { 50% { opacity: 0; } }
-
-  /* ── GLITCH on hero name hover ── */
-  .hero-name:hover .char {
-    animation: glitchChar 0.3s ease;
-  }
-  @keyframes glitchChar {
-    0%  { transform: none; }
-    20% { transform: skewX(-5deg) translateX(2px); color: #f59e0b; }
-    40% { transform: skewX(3deg) translateX(-2px); color: #3b82f6; }
-    60% { transform: skewX(-2deg) translateX(1px); color: #10b981; }
-    80% { transform: skewX(1deg); color: var(--text); }
-    100%{ transform: none; color: inherit; }
-  }
-
-  /* ── TYPEWRITER for hero-title ── */
-  .hero-title {
-    position: relative;
-    min-height: 1.5em;
-  }
-  #typed-title { display: inline; }
-  #typed-cursor {
-    display: inline-block;
-    width: 2px;
-    height: 1em;
-    background: var(--accent2);
-    vertical-align: middle;
-    animation: blink 0.7s step-end infinite;
-    margin-left: 1px;
-  }
-
-  /* ── SCAN LINE ── */
-  .hero::after {
-    content: '';
-    position: absolute;
-    left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(245,158,11,0.15), transparent);
-    animation: scanLine 4s linear infinite;
-    pointer-events: none;
-    z-index: 2;
-  }
-  @keyframes scanLine {
-    0%   { top: 0; }
-    100% { top: 100%; }
-  }
-
-  /* ── CLICK HINT ── */
-  .click-hint {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    color: var(--muted);
-    letter-spacing: 0.15em;
-    margin-top: 0.5rem;
-    opacity: 0.6;
-    animation: fadeUp 1s 1.5s ease both;
-  }
-
-  /* ── PULSE RING on hero tag ── */
-  .hero-tag {
-    position: relative;
-  }
-  .hero-tag::after {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border: 1px solid rgba(245,158,11,0.4);
-    animation: pulseRing 2.5s ease-out infinite;
-    border-radius: 2px;
-  }
-  @keyframes pulseRing {
-    0%   { opacity: 0.8; transform: scale(1); }
-    100% { opacity: 0; transform: scale(1.08); }
-  }
-
-  /* ── COUNTER animation ── */
-  .stat-num { transition: color 0.3s; }
-  .stat-card:hover .stat-num { color: var(--accent) !important; text-shadow: 0 0 20px rgba(245,158,11,0.5); }
-
-  /* ── NEON GLOW on section titles ── */
-  .section-title {
-    transition: text-shadow 0.3s;
-  }
-  .section-header:hover .section-title {
-    text-shadow: 0 0 30px rgba(245,158,11,0.3);
-  }
-
-  /* ── PROGRESS BARS for skills ── */
-  .skill-bar-wrap {
-    margin-top: 1rem;
-  }
-  .skill-bar-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.7rem;
-    color: var(--muted);
-    margin-bottom: 0.3rem;
-  }
-  .skill-bar {
-    height: 3px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-    margin-bottom: 0.7rem;
-  }
-  .skill-bar-fill {
-    height: 100%;
-    width: 0;
-    border-radius: 2px;
-    transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-  }
-  .skill-bar-fill.green { background: linear-gradient(90deg, var(--accent3), var(--accent2)); }
-
-  @media (max-width: 768px) {
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
@@ -946,22 +649,9 @@
 </head>
 <body>
 
-<!-- PARTICLES -->
-<canvas id="particles-canvas"></canvas>
-
-<!-- TERMINAL INTRO -->
-<div id="terminal-intro">
-  <div style="margin-bottom:2rem;">
-    <div style="color:#00ff41;font-size:0.65rem;letter-spacing:0.2em;margin-bottom:1rem;">SYSTEM BOOT — PORTFOLIO OS v2.0</div>
-    <div style="width:100%;height:1px;background:linear-gradient(90deg,#00ff41,transparent);margin-bottom:1.5rem;"></div>
-  </div>
-  <div id="t-lines"></div>
-  <div class="t-skip" onclick="skipIntro()">[ SKIP — TEKAN ENTER ]</div>
-</div>
-
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Junaid Adzan Isnam.ST</div>
+  <div class="nav-logo">JAI.ST</div>
   <div class="nav-links">
     <a href="#about">Tentang</a>
     <a href="#skills">Keahlian</a>
@@ -975,17 +665,13 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag" onclick="toggleTagInfo(event)">Electrical Engineering — S1 Teknik Elektro</div>
-    <h1 class="hero-name" id="heroName" onclick="triggerTypewriter()" title="Klik untuk animasi!">JUNAID<br><span>ADZAN</span><br>ISNAM</h1>
-    <div class="click-hint">▶ klik nama untuk animasi</div>
-    <div class="hero-title" onclick="toggleTitleInfo(event)"><span id="typed-title">// ELECTRICAL MAINTENANCE · POWER PLANT SPECIALIST · AI & SOFTWARE DEV</span><span id="typed-cursor"></span></div>
-    <div class="hero-title-expanded" id="titleInfo">
-      <strong>Keahlian Utama:</strong> Maintenance electrical systems, power plant operations (3×50 MW), DCS control systems, dan pengembangan software berbasis AI. Berpengalaman dalam troubleshooting sistem kompleks dan engineering modification sesuai standar industri.
-    </div>
+    <div class="hero-tag">Electrical Engineering — S1 Teknik Elektro</div>
+    <h1 class="hero-name">JUNAID<br><span>ADZAN</span><br>ISNAM</h1>
+    <div class="hero-title">// ELECTRICAL MAINTENANCE STAFF · POWER PLANT SPECIALIST · AI & SOFTWARE DEV</div>
     <p class="hero-desc">
-      Electrical Maintenance Staff dengan pengalaman lebih dari 7 tahun di industri power plant,
+      Electrical Maintenance Staff dengan pengalaman lebih dari 10 tahun di industri power plant,
       nikel, dan konstruksi jaringan. Menguasai maintenance, troubleshooting, engineering modification,
-      serta pengembangan software berbasis AI (Artificial Intelligence).
+      serta pengembangan software berbasis AI dan Python.
     </p>
     <div class="hero-cta">
       <a href="#experience" class="btn-primary">Lihat Pengalaman</a>
@@ -994,21 +680,21 @@
   </div>
 
   <div class="hero-right">
-    <div class="stat-card" onclick="toggleStatInfo(0)">
+    <div class="stat-card">
       <div class="stat-num">10+</div>
       <div class="stat-info">
         <h4>Tahun Pengalaman</h4>
         <p>Industri nikel, power plant, konstruksi & IT</p>
       </div>
     </div>
-    <div class="stat-card" onclick="toggleStatInfo(1)">
+    <div class="stat-card">
       <div class="stat-num">3×</div>
       <div class="stat-info">
         <h4>Power Plant 3×50 MW</h4>
         <p>Operator Elektrik DCS — PT. Wanatiara Persada</p>
       </div>
     </div>
-    <div class="stat-card" onclick="toggleStatInfo(2)">
+    <div class="stat-card">
       <div class="stat-num">3.13</div>
       <div class="stat-info">
         <h4>IPK — Unhas S1</h4>
@@ -1028,17 +714,17 @@
 
   <div class="about-grid">
     <div class="about-text reveal">
-      <p onclick="highlightText(event)">
+      <p>
         Saya adalah Electrical Maintenance Staff dengan pengalaman kerja di industri pembangkit
-        listrik sejak 2018, dan latar belakang teknikal lebih dari 7 tahun di power plant,
+        listrik sejak 2023, dan latar belakang teknikal lebih dari 10 tahun di power plant,
         industri nikel, dan konstruksi jaringan transmisi.
       </p>
-      <p onclick="highlightText(event)">
+      <p>
         Memiliki kemampuan dalam maintenance, troubleshooting, engineering modification, dan
         perawatan sistem electrical power plant — termasuk crane & hoist system, MCC, motor listrik,
         transformer, dan sistem kontrol. Terbiasa bekerja sesuai standar K3 dan SOP perusahaan.
       </p>
-      <p onclick="highlightText(event)">
+      <p>
         Selain kompetensi teknikal industri, saya juga aktif mengembangkan kemampuan di bidang
         AI Engineering, Python Programming, Web Development, dan pengembangan aplikasi berbasis
         teknologi modern.
@@ -1060,11 +746,11 @@
       </div>
       <div class="contact-item">
         <div class="contact-icon">👤</div>
-        <span>33 Tahun</span>
+        <span>33 Tahun (Kelahiran 1992)</span>
       </div>
       <div class="contact-item">
         <div class="contact-icon">🌐</div>
-        <span>📌 Bahasa Indonesia  📌Basic mandarin </span>
+        <span>Bahasa Indonesia · Bahasa Cina Dasar</span>
       </div>
     </div>
   </div>
@@ -1084,7 +770,7 @@
       <div class="skill-tags">
         <span class="skill-tag">Multi Meter</span>
         <span class="skill-tag">MEGGER</span>
-        <span class="skill-tag">Clamp Meter</span>
+        <span class="skill-tag">Tang Ampere</span>
       </div>
     </div>
 
@@ -1098,411 +784,4 @@
         <span class="skill-tag">Dahlander</span>
         <span class="skill-tag">Forward Reverse</span>
         <span class="skill-tag">Crane Remote</span>
-        <span class="skill-tag">Inverter ACS 580</span>
-        <span class="skill-tag">Inverter ACS 880</span>
-      </div>
-    </div>
-
-    <div class="skill-category reveal">
-      <div class="skill-category-title">🏗️ Instalasi Listrik</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Wiring Instalasi</span>
-        <span class="skill-tag">Cable Termination</span>
-        <span class="skill-tag">Earthing/Grounding</span>
-        <span class="skill-tag">Lightning Protection</span>
-        <span class="skill-tag">Distribution Panel</span>
-        <span class="skill-tag">UPS Installation</span>
-      </div>
-    </div>
-
-    <div class="skill-category reveal">
-      <div class="skill-category-title">🤖 AI & Programming</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">Machine Learning</span>
-        <span class="skill-tag">TensorFlow</span>
-        <span class="skill-tag">Data Analysis</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">Web Dev</span>
-      </div>
-    </div>
-
-    <div class="skill-category reveal">
-      <div class="skill-category-title">📊 Sistem & Software</div>
-      <div class="skill-tags">
-        <span class="skill-tag">DCS Control</span>
-        <span class="skill-tag">SCADA System</span>
-        <span class="skill-tag">HMI Interface</span>
-        <span class="skill-tag">Industrial IoT</span>
-        <span class="skill-tag">SQL Database</span>
-        <span class="skill-tag">Git Version Control</span>
-      </div>
-    </div>
-
-    <div class="skill-category reveal">
-      <div class="skill-category-title">🛠️ Tools & Equipment</div>
-      <div class="skill-tags">
-        <span class="skill-tag">AutoCAD</span>
-        <span class="skill-tag">PLC Programming</span>
-        <span class="skill-tag">Microcontroller</span>
-        <span class="skill-tag">Arduino</span>
-        <span class="skill-tag">Oscilloscope</span>
-        <span class="skill-tag">Power Analysis</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-header reveal">
-    <div class="section-num">03</div>
-    <h2 class="section-title">PENGALAMAN</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="experience-timeline">
-    <div class="exp-item reveal">
-      <div class="exp-dot"></div>
-      <div class="exp-card">
-        <div class="exp-header">
-          <div class="exp-company">PT. Wanatiara Persada (Nickel Industry)</div>
-          <div class="exp-period">2021 — Sekarang</div>
-        </div>
-        <div class="exp-role">🔧 Electrical Maintenance Staff (Power Plant Operator)</div>
-        <ul class="exp-desc">
-          <li>Maintenance dan operasi 3×50 MW power plant diesel generator dengan DCS control system</li>
-          <li>Troubleshooting sistem electrical kompleks dan engineering modification sesuai standar</li>
-          <li>Perawatan MCC, motor listrik 3-phase, transformer, dan sistem proteksi relay</li>
-          <li>Dokumentasi maintenance dan predictive maintenance scheduling</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item reveal">
-      <div class="exp-dot"></div>
-      <div class="exp-card">
-        <div class="exp-header">
-          <div class="exp-company">PT. Guna Wijaya Abadi (Power Transmission)</div>
-          <div class="exp-period">2018 — 2021</div>
-        </div>
-        <div class="exp-role">⚡ Electrical Technician (Network Construction)</div>
-        <ul class="exp-desc">
-          <li>Instalasi jaringan transmisi tegangan tinggi (High Voltage Distribution)</li>
-          <li>Cable termination, earthing system design, dan lightning protection installation</li>
-          <li>Quality control dan compliance terhadap standar PLN dan K3 industri</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education" class="edu-section">
-  <div class="section-header reveal">
-    <div class="section-num">04</div>
-    <h2 class="section-title">PENDIDIKAN</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="edu-grid">
-    <div class="edu-card featured reveal">
-      <div class="edu-badge">S1 AKTIF</div>
-      <div class="edu-year">2014 — 2021</div>
-      <div class="edu-school">Universitas Hasanuddin (UNHAS)</div>
-      <div class="edu-major">Teknik Elektro — Electrical Engineering</div>
-      <div class="edu-gpa">3.13 <span>/ 4.0 GPA</span></div>
-    </div>
-
-    <div class="edu-card reveal">
-      <div class="edu-year">2024 — Present</div>
-      <div class="edu-school">Dicoding — Google Cloud Certification</div>
-      <div class="edu-major">Associate Cloud Engineer Preparation</div>
-    </div>
-
-    <div class="edu-card reveal">
-      <div class="edu-year">2023 — 2024</div>
-      <div class="edu-school">Coursera + TensorFlow</div>
-      <div class="edu-major">Machine Learning & AI Engineering</div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-header reveal">
-    <div class="section-num">05</div>
-    <h2 class="section-title">PROYEK</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="projects-grid">
-    <div class="project-card reveal">
-      <div class="project-icon">🔌</div>
-      <div class="project-title">Smart Power Monitoring System</div>
-      <div class="project-desc">
-        Sistem monitoring real-time power consumption menggunakan IoT sensors, Arduino, dan cloud database. Integrasi dengan web dashboard untuk analisis data tenaga listrik.
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-icon">🤖</div>
-      <div class="project-title">Predictive Maintenance AI</div>
-      <div class="project-desc">
-        Machine learning model untuk prediksi maintenance electrical equipment berbasis historical data. Menggunakan Python, TensorFlow, dan SQL database.
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-icon">🌐</div>
-      <div class="project-title">Technical Documentation Portal</div>
-      <div class="project-desc">
-        Web application untuk dokumentasi teknis maintenance procedures, SOP, dan technical guides. Built dengan JavaScript, HTML5, CSS3, dan responsive design.
-      </div>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-icon">📊</div>
-      <div class="project-title">Energy Efficiency Dashboard</div>
-      <div class="project-desc">
-        Dashboard analytics untuk tracking energy efficiency dan cost optimization dalam operasi power plant. Real-time data visualization dan reporting.
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certs" class="certs-section">
-  <div class="section-header reveal">
-    <div class="section-num">06</div>
-    <h2 class="section-title">SERTIFIKASI</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="certs-list">
-    <div class="cert-item reveal">
-      <div class="cert-badge">✓</div>
-      <div class="cert-text">
-        <h4>Operator Elektrik DCS — PT. Wanatiara</h4>
-        <p>Sertifikasi kompeten operasi diesel power plant 3×50 MW dengan DCS control system</p>
-      </div>
-    </div>
-
-    <div class="cert-item reveal">
-      <div class="cert-badge">✓</div>
-      <div class="cert-text">
-        <h4>Standar Keselamatan Kerja (K3) — Level 2</h4>
-        <p>Sertifikasi keselamatan dan kesehatan kerja industri electrical standard</p>
-      </div>
-    </div>
-
-    <div class="cert-item reveal">
-      <div class="cert-badge">✓</div>
-      <div class="cert-text">
-        <h4>High Voltage Installation — PT. Guna Wijaya</h4>
-        <p>Sertifikasi instalasi jaringan transmisi tegangan tinggi dan lightning protection</p>
-      </div>
-    </div>
-
-    <div class="cert-item reveal">
-      <div class="cert-badge">✓</div>
-      <div class="cert-text">
-        <h4>Python for Data Science — Coursera</h4>
-        <p>Sertifikasi programming Python untuk analisis data dan machine learning development</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-name">Junaid Adzan Isnam, ST</div>
-  <div class="footer-copy">© 2026 — All Rights Reserved | Electrical Engineer & AI Developer</div>
-</footer>
-
-<script>
-  // ────── TERMINAL INTRO ──────
-  const terminalLines = [
-    { prompt: '$', text: 'cd ~/portfolio', dim: false },
-    { prompt: '$', text: 'ls -la', dim: false },
-    { prompt: '', text: 'drwxr-xr-x  about/', dim: true },
-    { prompt: '', text: 'drwxr-xr-x  skills/', dim: true },
-    { prompt: '', text: 'drwxr-xr-x  experience/', dim: true },
-    { prompt: '', text: '-rw-r--r--  Junaid_Adzan_Isnam.pdf', dim: true },
-    { prompt: '$', text: 'cat portfolio.json', dim: false },
-    { prompt: '', text: '{ "status": "initializing", "loading": 100% }', dim: false },
-    { prompt: '$', text: 'npm start', dim: false },
-    { prompt: '', text: '>> Portfolio loaded successfully ✓', dim: true },
-  ];
-
-  function initTerminal() {
-    const tLinesContainer = document.getElementById('t-lines');
-    let lineIndex = 0;
-
-    function typeNextLine() {
-      if (lineIndex >= terminalLines.length) {
-        document.addEventListener('keydown', handleSkipKey);
-        setTimeout(skipIntro, 3000);
-        return;
-      }
-
-      const line = terminalLines[lineIndex];
-      const lineEl = document.createElement('div');
-      lineEl.className = 't-line';
-      lineEl.style.animationDelay = lineIndex * 0.1 + 's';
-
-      if (line.prompt) {
-        const promptEl = document.createElement('span');
-        promptEl.className = 't-prompt';
-        promptEl.textContent = line.prompt + ' ';
-        lineEl.appendChild(promptEl);
-      }
-
-      const textEl = document.createElement('span');
-      textEl.className = line.dim ? 't-dim' : 't-green';
-      textEl.textContent = line.text;
-      lineEl.appendChild(textEl);
-
-      tLinesContainer.appendChild(lineEl);
-
-      setTimeout(() => {
-        lineEl.classList.add('done');
-        typeNextLine();
-      }, 500 + lineIndex * 100);
-
-      lineIndex++;
-    }
-
-    typeNextLine();
-  }
-
-  function handleSkipKey(e) {
-    if (e.key === 'Enter') skipIntro();
-  }
-
-  function skipIntro() {
-    const intro = document.getElementById('terminal-intro');
-    intro.style.animation = 'fadeUp 0.6s ease forwards';
-    setTimeout(() => {
-      intro.style.display = 'none';
-      document.removeEventListener('keydown', handleSkipKey);
-    }, 600);
-  }
-
-  window.addEventListener('load', initTerminal);
-
-  // ────── SCROLL REVEAL ──────
-  const revealElements = document.querySelectorAll('.reveal');
-  const revealOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
-  const revealOnScroll = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealOnScroll.unobserve(entry.target);
-      }
-    });
-  }, revealOptions);
-
-  revealElements.forEach(el => revealOnScroll.observe(el));
-
-  // ────── INTERACTIVE ELEMENTS ──────
-  function toggleTitleInfo(e) {
-    e.stopPropagation();
-    const info = document.getElementById('titleInfo');
-    info.classList.toggle('active');
-  }
-
-  function toggleTagInfo(e) {
-    e.stopPropagation();
-    console.log('Tag info clicked');
-  }
-
-  function toggleStatInfo(index) {
-    console.log('Stat card clicked:', index);
-  }
-
-  function highlightText(e) {
-    const para = e.target;
-    para.style.background = 'rgba(245,158,11,0.08)';
-    setTimeout(() => {
-      para.style.background = '';
-    }, 1000);
-  }
-
-  function triggerTypewriter() {
-    const nameEl = document.getElementById('heroName');
-    const chars = nameEl.querySelectorAll('.char');
-    chars.forEach((char, i) => {
-      setTimeout(() => {
-        char.classList.add('typing');
-        setTimeout(() => char.classList.remove('typing'), 150);
-      }, i * 50);
-    });
-  }
-
-  // ────── PARTICLES BACKGROUND ──────
-  const canvas = document.getElementById('particles-canvas');
-  const ctx = canvas.getContext('2d');
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 1.5;
-      this.speedX = (Math.random() - 0.5) * 0.5;
-      this.speedY = (Math.random() - 0.5) * 0.5;
-      this.opacity = Math.random() * 0.5;
-    }
-
-    update() {
-      this.x += this.speedX;
-      this.y += this.speedY;
-
-      if (this.x > canvas.width) this.x = 0;
-      if (this.x < 0) this.x = canvas.width;
-      if (this.y > canvas.height) this.y = 0;
-      if (this.y < 0) this.y = canvas.height;
-    }
-
-    draw() {
-      ctx.fillStyle = `rgba(245, 158, 11, ${this.opacity})`;
-      ctx.fillRect(this.x, this.y, this.size, this.size);
-    }
-  }
-
-  const particles = [];
-  for (let i = 0; i < 50; i++) {
-    particles.push(new Particle());
-  }
-
-  function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-      p.update();
-      p.draw();
-    });
-    requestAnimationFrame(animateParticles);
-  }
-
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-  animateParticles();
-
-  // ────── SMOOTH SCROLL BEHAVIOR ──────
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
-</body>
-</html>
+        <span class="skill
